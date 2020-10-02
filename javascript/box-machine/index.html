@@ -8,35 +8,55 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
     </script>
     <title>Document</title>
+    <style>
+        div {
+            display: inline-block;
+            margin: 5px;
+        }
+
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            background-color: lime;
+        }
+
+        body,
+        main {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
 </head>
 
-<body style="height: 100%; width: 100%;">
-    <main style="height: 100%; width: 100%;">
-        <form>
-            <!--i dont know how to make php-->
-            <h2>
-                Choose the circumference of the shape:
-            </h2>
-            <label for="circum">Circumference in pixels</label><input type="text" name="circum" id="circum-field">
-            <h2>
-                Choose the type of shape to make:
-            </h2>
-            <label for="cube-button">Cube</label><input type="radio" name="shape" id="cube-button">
-            <label for="circle-button">Circle</label><input type="radio" name="shape" id="circle-button">
-            <h2>
-                Choose the color of your shape:
-            </h2>
-            <label for="color-btn-red">Red</label><input value="red" type="radio" name="color" id="color-btn-red">
-            <label for="color-btn-blu">Blue</label><input value="blue" type="radio" name="color" id="color-btn-blu">
-            <label for="color-btn-grn">Green</label><input value="green" type="radio" name="color" id="color-btn-grn">
-            <label for="color-btn-ylw">Yellow</label><input value="yellow" type="radio" name="color" id="color-btn-ylw">
-            <label for="color-btn-orn">Orange</label><input value="orange" type="radio" name="color" id="color-btn-orn">
-            <label for="color-btn-pur">Purple</label><input value="purple" type="radio" name="color" id="color-btn-pur">
-            <!--<label for="submit">Make a box!</label><input type="submit" id="box-make" name="submit"
+<body>
+    <main>
+
+        <!--i dont know how to make php-->
+        <h2>
+            Choose the Diameter of the shape:
+        </h2>
+        <label for="circum">Diameter in pixels</label><input type="text" name="circum" id="circum-field">
+        <h2>
+            Choose the type of shape to make:
+        </h2>
+        <label for="cube-button">Cube</label><input type="radio" name="shape" id="cube-button">
+        <label for="circle-button">Circle</label><input type="radio" name="shape" id="circle-button">
+        <label for="triangle-button">Triangle</label><input type="radio" name="shape" id="triangle-button">
+        <h2>
+            Choose the color of your shape:
+        </h2>
+        <label for="color-btn-red">Red</label><input value="red" type="radio" name="color" id="color-btn-red">
+        <label for="color-btn-blu">Blue</label><input value="blue" type="radio" name="color" id="color-btn-blu">
+        <label for="color-btn-grn">Green</label><input value="green" type="radio" name="color" id="color-btn-grn">
+        <label for="color-btn-ylw">Yellow</label><input value="yellow" type="radio" name="color" id="color-btn-ylw">
+        <label for="color-btn-orn">Orange</label><input value="orange" type="radio" name="color" id="color-btn-orn">
+        <label for="color-btn-pur">Purple</label><input value="purple" type="radio" name="color" id="color-btn-pur">
+        <!--<label for="submit">Make a box!</label><input type="submit" id="box-make" name="submit"
                 onclick="makeShape()">-->
-            <button id="submit" onclick="makeShape()">Submit</button>
-        </form>
-        <section class="output" style="height: 20vw; width: 100%; background-color: lime;">
+        <button onclick="makeShape()">Submit</button>
+
+        <section class="output">
             <p>MACHINE</p>
         </section>
     </main>
