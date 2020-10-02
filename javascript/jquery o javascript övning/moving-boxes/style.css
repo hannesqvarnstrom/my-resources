@@ -2,6 +2,8 @@ body{
   transition: 1s;
   background-color: orange;
   font-family: 'Raleway', sans-serif;
+  height: 100%;
+  width: 100%;
 }
 
 .box{
@@ -56,11 +58,13 @@ transition: background-color 1s;
   max-width: 600px;
   position: fixed;
   display: none;
-  overflow: hidden;
-  border-radius: 15px;
 }
 
-#sidebar span{
+#sidebar a{
+  color: black;
+  text-decoration: none;
+  
+  position: relative;
   display:block;
   width: 100px;
   padding: 60px 25px;
@@ -68,7 +72,7 @@ transition: background-color 1s;
   transition: transform 0.3s;
 }
 
-#sidebar span:hover{
+#sidebar a:hover{
   transition: 0.3s;
   transform: scale(1.2);
 }

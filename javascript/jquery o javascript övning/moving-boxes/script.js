@@ -12,6 +12,7 @@ $(document).ready(function () {
   let previousName = ''
   var restDivCoords = []
   const bodyTag = document.getElementsByTagName('body')[0]
+  //THE FOLLOWING FUNCTION CONTROLS THE BOXES POSITION! ALL IN ONE FUNCTION! 
   function moveUpLeft() {
     if (!toggle) {
       for (let i = 0; i < box_list.length; i++) {
@@ -24,7 +25,7 @@ $(document).ready(function () {
       y = coord.top
       previousName = this.getElementsByTagName('p')[0].innerHTML
 
-      $(this).animate({ top: ['100px', 'swing'], left: ['100px', 'swing'], fontSize: '2.5em', width: '200px' }, 750, function () {
+      $(this).animate({ top: ['100px', 'swing'], left: ['100px', 'swing'], fontSize: '2.5em', width: '200px' }, 750, function () { //this thing, the function statement after the millisecond animation value, is a function that fires after the animation completes. so you can chain animations after one another!
         $(this.getElementsByTagName('p')).fadeOut(function () {
           this.innerHTML = 'Back'
           $(this).fadeIn()
@@ -33,10 +34,10 @@ $(document).ready(function () {
         //this.innerHTML = '<p>Back</p>'
       })
 
-      bodyTag.classList.add('selectedBody')
+      bodyTag.classList.add('selectedBody')//these few rows just demonstrate how easy it is to change the styling and classes of elements by adding and removing classes
       this.classList.add('second_pos')
       this.classList.remove('first_pos')
-      for (let i = 0; i < box_list.length; i++) {
+      for (let i = 0; i < box_list.length; i++) {//this loop/animation moves all boxes NOT clicked (!==this) to a specific place. could be made more cool with like a function of their current pos or something idk
         if (box_list[i] !== this) {
           restDivCoords[i] = box_list[i].getBoundingClientRect()
           $(box_list[i]).animate({ top: '5px', left: '100%', opacity: '0' }, 300
@@ -45,7 +46,7 @@ $(document).ready(function () {
       }
       toggle = true
     } else {
-      $(this).animate({ top: [y, 'swing'], left: [x, 'swing'], fontSize: '1.5em', width: '150px' }, 600, function () {
+      $(this).animate({ top: [y, 'swing'], left: [x, 'swing'], fontSize: '1.5em', width: '150px' }, 600, function () { //this is if you're in the 'secondpos' mode, aka the boolean outside the function is switched 
         $(this.getElementsByTagName('p')).fadeOut('fast', function () {
           this.innerHTML = previousName
           $(this).fadeIn()
