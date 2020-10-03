@@ -2,31 +2,12 @@
 <html lang="en">
 
 <head>
+    <title>Box-machine</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.scss">
+    <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
     </script>
-    <title>Document</title>
-    <style>
-        div {
-            display: inline-block;
-            margin: 5px;
-        }
-
-        section {
-            display: flex;
-            flex-wrap: wrap;
-            width: 100%;
-            background-color: lime;
-        }
-
-        body,
-        main {
-            height: 100%;
-            width: 100%;
-        }
-    </style>
 </head>
 
 <body>
@@ -54,7 +35,7 @@
         <label for="color-btn-pur">Purple</label><input value="purple" type="radio" name="color" id="color-btn-pur">
         <!--<label for="submit">Make a box!</label><input type="submit" id="box-make" name="submit"
                 onclick="makeShape()">-->
-        <button onclick="makeShape()">Submit</button>
+        <button id="submit-btn">Submit</button>
 
         <section class="output">
             <p>MACHINE</p>
