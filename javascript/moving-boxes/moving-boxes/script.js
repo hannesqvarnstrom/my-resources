@@ -1,33 +1,14 @@
 $(document).ready(function () {
   let x, y
-  const boxList = document.querySelectorAll('.box')
-  const box_list = Array.from(boxList)
+  var box_list = [];
   var resetPos = [];
-  box_list.forEach(box => resetPos.push(box.getBoundingClientRect()))
-  var boxNumber = 0;
-  function addBox() {
-    let newDiv = document.createElement('DIV');
-    boxNumber++;
-    newDiv.classList.add('box');
-    newDiv.classList.add('first_pos');
-    newDiv.style.left = 25 + boxNumber * 10 + "%";
-    newDiv.innerHTML = "<p> Object " + boxNumber + "</p>";
-    document.body.appendChild(newDiv);
-  }
-  //SKAPA EVENTLISTENER FÖR DEN KOMMANDE KNAPPEN
   document.getElementById('addBoxButton').addEventListener('click', addBox);
-
-  //const resetPos = [box_list[0].getBoundingClientRect(), box_list[1].getBoundingClientRect(), box_list[2].getBoundingClientRect(), box_list[3].getBoundingClientRect()]
-  //make loop above for other amount of boxes. empty array - > fill with loop
-  for (let i = 0; i < box_list.length; i++) {
-    box_list[i].addEventListener('click', moveUpLeft)
-  }
-  // KOMMENTAR : om man resizar fönstret efter påbörjad animering fuckar positionerna upp... ajajaj
   let toggle = false
   let previousName = ''
   var restDivCoords = []
+  var boxRows = 1;
+  var rowReset = 0;
   const bodyTag = document.getElementsByTagName('body')[0]
-  //THE FOLLOWING FUNCTION CONTROLS THE BOXES POSITION! ALL IN ONE FUNCTION! 
   function moveUpLeft() {
     if (!toggle) {
       for (let i = 0; i < box_list.length; i++) {
@@ -45,17 +26,16 @@ $(document).ready(function () {
           this.innerHTML = 'Back'
           $(this).fadeIn()
         })
-
-        //this.innerHTML = '<p>Back</p>'
       })
-
+      var topPxStr;
       bodyTag.classList.add('selectedBody')//these few rows just demonstrate how easy it is to change the styling and classes of elements by adding and removing classes
       this.classList.add('second_pos')
       this.classList.remove('first_pos')
       for (let i = 0; i < box_list.length; i++) {//this loop/animation moves all boxes NOT clicked (!==this) to a specific place. could be made more cool with like a function of their current pos or something idk
         if (box_list[i] !== this) {
           restDivCoords[i] = box_list[i].getBoundingClientRect()
-          $(box_list[i]).animate({ top: '5px', left: '100%', opacity: '0' }, 300
+          topPxStr = 10 + (i * 5) + "px"; //This variable can be changed to spread out or change the behaviour of the boxes during state-change
+          $(box_list[i]).animate({ top: topPxStr, left: '100%', opacity: '0' }, 300
           )
         }
       }
@@ -81,10 +61,25 @@ $(document).ready(function () {
       toggle = false
     }
   }
-
-  $('#expandSideBar').click(function () {
-    $('#sidebar').animate({ width: 'toggle', display: 'content' }, 500)
-  })
+  var boxNumber = 0;
+  function addBox() {
+    if (rowReset == 9) {
+      boxRows++;
+      rowReset = 0;
+    }
+    let newDiv = document.createElement('DIV');
+    boxNumber++;
+    newDiv.classList.add('box');
+    newDiv.classList.add('first_pos');
+    newDiv.style.top = 30 + (boxRows - 1) * 10 + "%";
+    newDiv.style.left = 5 + rowReset * 10 + "%";
+    newDiv.innerHTML = "<p> Object " + boxNumber + "</p>";
+    document.body.appendChild(newDiv);
+    newDiv.addEventListener('click', moveUpLeft);
+    box_list.push(newDiv);
+    resetPos.push(newDiv.getBoundingClientRect());
+    rowReset++;
+  }
 
   document.querySelector('#randomButton').addEventListener('click', function () {
     for (let i = 0; i < box_list.length; i++) {
