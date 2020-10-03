@@ -8,8 +8,8 @@ $(document).ready(function () {
         let circumference = document.getElementsByName('circum')[0].value; //value ger inte värdet?
         let shapeBtns = document.getElementsByName('shape');
         let colorBtns = document.getElementsByName('color');
-        let shapeChoice = undefined;
-        let colorChoice = undefined;
+        let shapeChoice;
+        let colorChoice;
         for (let i = 0; i < shapeBtns.length; i++) {
             if (shapeBtns[i].checked) {
                 shapeChoice = shapeBtns[i];

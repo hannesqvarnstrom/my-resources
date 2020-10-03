@@ -3,7 +3,7 @@ $(document).ready(function () {
   const boxList = document.querySelectorAll('.box')
   const box_list = Array.from(boxList)
   const resetPos = [box_list[0].getBoundingClientRect(), box_list[1].getBoundingClientRect(), box_list[2].getBoundingClientRect(), box_list[3].getBoundingClientRect()]
-
+  //make loop above for other amount of boxes. empty array - > fill with loop
   for (let i = 0; i < box_list.length; i++) {
     box_list[i].addEventListener('click', moveUpLeft)
   }
