@@ -2,7 +2,22 @@ $(document).ready(function () {
   let x, y
   const boxList = document.querySelectorAll('.box')
   const box_list = Array.from(boxList)
-  const resetPos = [box_list[0].getBoundingClientRect(), box_list[1].getBoundingClientRect(), box_list[2].getBoundingClientRect(), box_list[3].getBoundingClientRect()]
+  var resetPos = [];
+  box_list.forEach(box => resetPos.push(box.getBoundingClientRect()))
+  var boxNumber = 0;
+  function addBox() {
+    let newDiv = document.createElement('DIV');
+    boxNumber++;
+    newDiv.classList.add('box');
+    newDiv.classList.add('first_pos');
+    newDiv.style.left = 25 + boxNumber * 10 + "%";
+    newDiv.innerHTML = "<p> Object " + boxNumber + "</p>";
+    document.body.appendChild(newDiv);
+  }
+  //SKAPA EVENTLISTENER FÖR DEN KOMMANDE KNAPPEN
+  document.getElementById('addBoxButton').addEventListener('click', addBox);
+
+  //const resetPos = [box_list[0].getBoundingClientRect(), box_list[1].getBoundingClientRect(), box_list[2].getBoundingClientRect(), box_list[3].getBoundingClientRect()]
   //make loop above for other amount of boxes. empty array - > fill with loop
   for (let i = 0; i < box_list.length; i++) {
     box_list[i].addEventListener('click', moveUpLeft)

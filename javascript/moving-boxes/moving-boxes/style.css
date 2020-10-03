@@ -34,6 +34,10 @@ left: 55%;
 left: 65%;
 }
 
+.div5{
+  left: 75%;
+}
+
 .first_pos{
 background-color: yellow;
 transition: background-color 1s;
