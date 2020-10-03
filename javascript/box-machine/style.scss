@@ -1,0 +1,17 @@
+        div {
+            display: inline-block;
+            margin: 5px;
+        }
+
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            background-color: lime;
+        }
+
+        body,
+        main {
+            height: 100%;
+            width: 100%;
+        }
