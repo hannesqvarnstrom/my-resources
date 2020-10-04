@@ -1,0 +1,28 @@
+alternative for deletion:
+
+- click button "Delete".
+- click object to delete.
+- prompt "are you sure?"
+- delete
+- prompt "do you want to push items together?"
+- either push together or leave be.
+- new object will have objectNumber of itself
+- then next object will need to get rowReset value of previous object, + 1 iteration for itself.
+
+<button id="delete-btn">Delete Object</button>
+
+document.getElementById('delete-btn').addEventListener('click', function () {
+	for (let i = 0 ; i < box_list.length ; i++) {
+		box_list[i].removeEventListener('click')
+		box_list[i].addEventListener('click', function () {
+
+if (confirm('Are you sure you want to delete this item?')) {
+	box_list[i].parentNode.removeChild(box_list[i]);
+	if (confirm('Do you want to push all objects to start?')) {
+		for (let j = 0; j < box_list.length; j++;) {
+			if (box_list[j-1] == undefined) {
+				box_list[j-1] = box_list[j];
+				} 				
+} else { break;} 
+
+})
