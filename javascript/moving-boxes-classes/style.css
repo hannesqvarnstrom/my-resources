@@ -16,7 +16,9 @@ body{
   text-align: center;
   border-radius: 10px;
 }
-
+.glow:hover {
+  box-shadow: 0px 0px 10px 5px teal;
+}
 .first_pos{
 background-color: yellow;
 transition: background-color 1s;

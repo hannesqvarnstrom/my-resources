@@ -107,4 +107,49 @@ $(document).ready(function () {
     }
   })
 
+  function deletePrompt() {
+    {
+
+      if (confirm('Are you sure you want to delete this item?')) {
+        this.parentNode.removeChild(this)
+        let index = box_list.indexOf(this)
+        box_list.splice(index, 1)//
+        if (confirm('Do you want to push all objects to start?')) {
+          reOrderList()
+        }
+      } else {
+        return
+      }
+      for (let k = 0; k < box_list.length; k++) {
+        box_list[k].removeEventListener('click', deletePrompt)
+        box_list[k].addEventListener('click', moveUpLeft)
+      }
+    }
+
+    for (let i = 0; i < box_list.length; i++) {
+      box_list[i].classList.remove('glow')
+    }
+  }
+  //DELETE-BUTTON SCRIPT
+  document.getElementById('delete-btn').addEventListener('click', function () {
+    for (let i = 0; i < box_list.length; i++) {
+      box_list[i].removeEventListener('click', moveUpLeft)
+      box_list[i].addEventListener('click', deletePrompt)
+      box_list[i].classList.add('glow')
+    }
+
+  })
+  function reOrderList() {
+    boxRows = 1
+    rowReset = 0
+    for (let i = 0; i < box_list.length; i++) {
+      box_list[i].style.top = 30 + (boxRows - 1) * 10 + "%";
+      box_list[i].style.left = 5 + rowReset * 10 + "%";
+      rowReset++
+      if (rowReset == 9) {
+        boxRows++;
+        rowReset = 0;
+      }
+    }
+  }
 })
