@@ -116,6 +116,15 @@ $(document).ready(function () {
         box_list.splice(index, 1)//
         if (confirm('Do you want to push all objects to start?')) {
           reOrderList()
+          resetPos.splice(0, resetPos.length)
+          for (let i = 0; i < box_list.length; i++) {
+            resetPos.push(box_list[i].getBoundingClientRect());
+          }
+        } else {
+          resetPos.splice(0, resetPos.length)
+          for (let i = 0; i < box_list.length; i++) {
+            resetPos.push(box_list[i].getBoundingClientRect()); //TENTATIVE
+          }
         }
       } else {
         return
