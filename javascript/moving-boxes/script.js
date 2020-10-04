@@ -76,6 +76,12 @@ $(document).ready(function () {
     newDiv.innerHTML = "<p> Object " + boxNumber + "</p>";
     document.body.appendChild(newDiv);
     newDiv.addEventListener('click', moveUpLeft);
+    newDiv.addEventListener('contextmenu', function (ev) {//THIS ENABLES BOXES TO BE 'REMOVED', HOWEVER NEW BOXES DONT GO IN THEIR PLACE. THEIR SPACE STAYS EMPTY. FIX?
+      newDiv.parentNode.removeChild(newDiv); // create global attribute that is array, store deleted boxnumbers there and let that be the first place that newDiv.innerhtml goes to name stuff, also the first place the style.placing of each item happens
+      ev.preventDefault(); //ALSO this breaks the state-2 of the boxes, the left-click-grow one. that is a problem. fixable with boolean? maybe not worth doing at all. 
+      //box-number --? becomes rather weird, right? 
+      return false;
+    }, false)
     box_list.push(newDiv);
     resetPos.push(newDiv.getBoundingClientRect());
     rowReset++;
@@ -87,9 +93,12 @@ $(document).ready(function () {
     }
   })
 
+
+
   $('#resetButton').click(function () {
     for (let i = 0; i < box_list.length; i++) {
       $(box_list[i]).animate({ top: resetPos[i].top + 'px', left: resetPos[i].left + 'px' }, 1000)
     }
   })
+
 })
