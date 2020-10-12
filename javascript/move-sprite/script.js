@@ -8,8 +8,8 @@ var boxNumber = 0
 //then we create a class for our shapes
 class Sprite {
     constructor(circ, shape, clr, row, col, num) {
-        this.top = 20 + (row - 1) * 20 + "px" //check the exact px amounts that make sense
-        this.left = 5 + col * 20 + "px"//for this too
+        this.top = 20 + (row - 1) * 20 + "%" //check the exact px amounts that make sense
+        this.left = 5 + col * 20 + "%"//for this too
         this.number = num
         this.circumference = circ
         this.shape = shape
@@ -20,8 +20,10 @@ class Sprite {
         newShape.classList.add('box')
         newShape.style.top = this.top
         newShape.style.left = this.left
-        newShape.innerHTML = "<p>Object" + this.number + "</p>"
+        newShape.innerHTML = "<p>Object " + this.number + "</p>"
         if (this.shape.id == "triangle-button") {
+            //this is when we construct the triangle
+            //in this experiment, this does not work. this is because of the faulty method of triangle making
             newShape.style.width = "0px"
             newShape.style.height = "0px"
             newShape.style.borderLeft = this.circumference / 2 + "px solid white"
@@ -42,19 +44,20 @@ class Sprite {
             }
             newShape.style.backgroundColor = this.colour.value //rätt plats? VALUE?
         }
-        document.body.appendChild(newShape)
+        document.body.appendChild(newShape)//if you want the shapes in a container, use this row
         box_list.push(newShape)
         newShape.addEventListener('click', function () {
-            for (let i = 0; i < box_list.length; i++) {
+            for (let i = 0; i < box_list.length; i++) { //this is the loop that controls which shape is movable at the moment
                 if (box_list[i].classList.contains('active-sprite')) {
                     box_list[i].classList.remove('active-sprite')
                 }
-            }//this borde fungera
+            }
             this.classList.toggle('active-sprite')
         })
 
     }
 }
+//this is to open sub-menu for creation
 document.getElementsByClassName('createShape')[0].addEventListener('click', function () {
     for (let i = 0; i < menu_items.length; i++) {
         menu_items[i].classList.toggle('hidden')
@@ -64,11 +67,11 @@ document.getElementsByClassName('createShape')[0].addEventListener('click', func
 
 document.getElementById('submit-btn').addEventListener('click', function () {
     for (let i = 0; i < menu_items.length; i++) {
-        menu_items[i].classList.toggle('hidden')
+        menu_items[i].classList.toggle('hidden') //for 'showing' all menu items next time you click open menu
     }
-    document.getElementById('menu').classList.toggle('shown')//här är det konstigt potentiellt, med hidden och shown
-    document.getElementById('creationList').classList.toggle('hidden')
-    if (rowReset == 9) { // CHANGE TO FIT THE STYLE OF PAGE, HOW MANY COLS?
+    document.getElementById('menu').classList.toggle('shown') //hide menu to show shapes
+    document.getElementById('creationList').classList.toggle('hidden') //remove the creationList
+    if (rowReset == 9) { // this can be changed to fit how many columns is needed
         boxRows++
         rowReset = 0
     }
@@ -94,12 +97,24 @@ document.getElementById('submit-btn').addEventListener('click', function () {
     NewShape.createSprite()
     rowReset++
 })
+
+//this is to close the menu and reset it. it is supposed to be clear that that's what it does
+document.getElementById('closeMenu').addEventListener('click', function () {
+    document.getElementById('menu').classList.toggle('shown')
+    document.getElementById('creationList').classList.toggle('hidden')
+    for (let i = 0; i < menu_items.length; i++) {
+        menu_items[i].classList.toggle('hidden')
+    }
+
+})
+
+//this toggles the menu, but DOESNT reset it!! maybe add a back button?
 document.getElementById('menu-button').addEventListener('click', function () {
     document.getElementById('menu').classList.toggle('shown')
     //document.removeEventListener('keydown', keyCheck()) //FÖR ATT TOGGLA OM KNAPPTRYCK SKA SYNAS?
 })
 //
-//DET UNDER FÅR EJ VARA AKTIVT KONSTANT. DÅ GÅR DET INTE ATT TRYCKA PÅ KNAPPAR FÖR ATT ANGE SIFFROR I MENYN
+//
 document.getElementsByClassName('deleteShape')[0].addEventListener('click', function () {
     for (let i = 0; i < box_list.length; i++) {
         box_list[i].addEventListener('click', DeletePrompt)
@@ -126,6 +141,7 @@ function DeletePrompt() {
     }
 }
 
+//this is the eventListener that takes your input during movement. it currently fucks with your scrolling, which is not so good
 document.addEventListener('keydown', function keyCheck(event) {
     // event.preventDefault()
     const key = event.key

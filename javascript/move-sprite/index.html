@@ -14,6 +14,7 @@
         <ul>
             <li class="menuitem createShape">Create new shape</li>
             <ul class="hidden" id="creationList">
+                <h4>Create your shape here</h4>
                 <li>
                     <label for="circum">Diameter in pixels</label><input type="text" name="circum" id="circum-field">
                 </li>
@@ -36,14 +37,15 @@
                     <label for="color-btn-pur">Purple</label><input value="purple" type="radio" name="color"
                         id="color-btn-pur">
                 </li>
-                <li>
-                    <button id="submit-btn">Submit</button>
-                </li>
+
+                <button id="submit-btn">Submit</button>
+
             </ul>
             <li class="menuitem customizeShape">Customize</li>
             <li class="menuitem deleteShape">Delete Shape</li>
             <li class="menuitem customizeBG">Customize Background</li>
             <li class="menuitem return">Return</li>
+            <a id="closeMenu">X</a>
         </ul>
     </div>
     <script src="script.js"></script>
