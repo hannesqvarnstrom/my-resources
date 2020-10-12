@@ -138,16 +138,16 @@ document.addEventListener('keydown', function keyCheck(event) {
         //
         switch (key) {
             case "ArrowLeft":
-                activeSprite.style.left = position.x - 40 + "px"
+                activeSprite.style.left = position.x - 100 + "px"
                 break
             case "ArrowUp":
-                activeSprite.style.top = position.y - 40 + "px"
+                activeSprite.style.top = position.y - 100 + "px"
                 break
             case "ArrowRight":
-                activeSprite.style.left = position.x + 40 + "px"
+                activeSprite.style.left = position.x + 100 + "px"
                 break
             case "ArrowDown":
-                activeSprite.style.top = position.y + 40 + "px"
+                activeSprite.style.top = position.y + 100 + "px"
                 break
             default:
                 break;

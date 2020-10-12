@@ -60,8 +60,8 @@ ul li {
   position: absolute;
   display: inline-block;
   z-index: 1;
-  -webkit-transition: top 0.07s ease, left 0.07s ease;
-  transition: top 0.07s ease, left 0.07s ease;
+  -webkit-transition: top 0.3s ease, left 0.3s ease;
+  transition: top 0.3s ease, left 0.3s ease;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
