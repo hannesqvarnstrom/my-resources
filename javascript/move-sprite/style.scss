@@ -1,0 +1,52 @@
+#sprite {
+    width: 75px;
+    height: 75px;
+    background-color: yellow;
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    z-index: -2;
+    transition: top 0.07s ease, left 0.07s ease;
+}
+#menu{
+    min-width: 50%;
+    min-height: 50%;
+    height: 500px;
+    background-color: rgba(143, 143, 143, 0.6649);
+    margin: 20% auto;
+    border-radius: 10px;
+    transition: opacity 1s ease;
+    z-index: 5;
+}
+body, html {
+    height: 100%;
+    width: 100%;
+    font-family: sans-serif;
+}
+ul {
+    font-size: 2em;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    li {
+        text-align: center;
+        list-style-type: none;
+        width: 60%;
+        padding: 10px;
+        color: white;
+    }
+}
+.hidden {
+    opacity: 0;
+}
+.shown {
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+.active-sprite{
+    background-color: orange;
+    box-shadow: 10px 10px 10px blue;
+}
