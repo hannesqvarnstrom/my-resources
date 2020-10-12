@@ -9,11 +9,37 @@
 </head>
 
 <body>
-    <h3>Press P to open the menu</h3>
-    <div id="sprite"></div>
+    <button id="menu-button">Press to open the menu</button>
     <div id="menu" class="hidden">
         <ul>
             <li class="menuitem createShape">Create new shape</li>
+            <ul class="hidden" id="creationList">
+                <li>
+                    <label for="circum">Diameter in pixels</label><input type="text" name="circum" id="circum-field">
+                </li>
+                <li>
+                    <label for="cube-button">Cube</label><input type="radio" name="shape" id="cube-button">
+                    <label for="circle-button">Circle</label><input type="radio" name="shape" id="circle-button">
+                    <label for="triangle-button">Triangle</label><input type="radio" name="shape" id="triangle-button">
+                </li>
+                <li>
+                    <label for="color-btn-red">Red</label><input value="red" type="radio" name="color"
+                        id="color-btn-red">
+                    <label for="color-btn-blu">Blue</label><input value="blue" type="radio" name="color"
+                        id="color-btn-blu">
+                    <label for="color-btn-grn">Green</label><input value="green" type="radio" name="color"
+                        id="color-btn-grn">
+                    <label for="color-btn-ylw">Yellow</label><input value="yellow" type="radio" name="color"
+                        id="color-btn-ylw">
+                    <label for="color-btn-orn">Orange</label><input value="orange" type="radio" name="color"
+                        id="color-btn-orn">
+                    <label for="color-btn-pur">Purple</label><input value="purple" type="radio" name="color"
+                        id="color-btn-pur">
+                </li>
+                <li>
+                    <button id="submit-btn">Submit</button>
+                </li>
+            </ul>
             <li class="menuitem customizeShape">Customize</li>
             <li class="menuitem deleteShape">Delete Shape</li>
             <li class="menuitem customizeBG">Customize Background</li>

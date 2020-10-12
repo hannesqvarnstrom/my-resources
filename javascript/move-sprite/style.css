@@ -1,15 +1,3 @@
-#sprite {
-  width: 75px;
-  height: 75px;
-  background-color: yellow;
-  position: absolute;
-  top: 20%;
-  left: 20%;
-  z-index: -2;
-  -webkit-transition: top 0.07s ease, left 0.07s ease;
-  transition: top 0.07s ease, left 0.07s ease;
-}
-
 #menu {
   min-width: 50%;
   min-height: 50%;
@@ -56,18 +44,37 @@ ul li {
 }
 
 .hidden {
-  opacity: 0;
+  display: none;
 }
 
 .shown {
-  opacity: 1;
-  -webkit-transition: opacity 1s ease;
-  transition: opacity 1s ease;
+  display: block;
 }
 
 .active-sprite {
-  background-color: orange;
-  -webkit-box-shadow: 10px 10px 10px blue;
-          box-shadow: 10px 10px 10px blue;
+  border: 5px solid gold;
+}
+
+.box {
+  font-weight: 1000;
+  position: absolute;
+  display: inline-block;
+  z-index: 1;
+  -webkit-transition: top 0.07s ease, left 0.07s ease;
+  transition: top 0.07s ease, left 0.07s ease;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.glow:hover {
+  -webkit-box-shadow: 0px 0px 10px 5px teal;
+          box-shadow: 0px 0px 10px 5px teal;
 }
 /*# sourceMappingURL=style.css.map */

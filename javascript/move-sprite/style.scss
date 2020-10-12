@@ -1,13 +1,4 @@
-#sprite {
-    width: 75px;
-    height: 75px;
-    background-color: yellow;
-    position: absolute;
-    top: 20%;
-    left: 20%;
-    z-index: -2;
-    transition: top 0.07s ease, left 0.07s ease;
-}
+
 #menu{
     min-width: 50%;
     min-height: 50%;
@@ -40,13 +31,24 @@ ul {
     }
 }
 .hidden {
-    opacity: 0;
+    display: none;
 }
 .shown {
-    opacity: 1;
-    transition: opacity 1s ease;
+display: block;
 }
 .active-sprite{
-    background-color: orange;
-    box-shadow: 10px 10px 10px blue;
+    border: 5px solid gold;
+}
+.box{
+    font-weight: 1000;
+    position: absolute;
+    display: inline-block;
+    z-index: 1;
+    transition: top 0.07s ease, left 0.07s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.glow:hover {
+  box-shadow: 0px 0px 10px 5px teal;
 }
