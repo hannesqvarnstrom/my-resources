@@ -1,112 +1,111 @@
-
-#menu{
-        font-size: 2em;
-    height: 500px;
-    width: 80%;
-    background-color: rgba(143, 143, 143, 0.6649);
-    border-radius: 10px;
-    transition: opacity 1s ease;
-    z-index: 5;
-    position: fixed;
-    left: 10%;
-    top: 25%;
-    > ul {
-        position: relative;
-    }
+#menu {
+  font-size: 2em;
+  height: 500px;
+  width: 80%;
+  background-color: rgba(143, 143, 143, 0.6649);
+  border-radius: 10px;
+  transition: opacity 1s ease;
+  z-index: 5;
+  position: fixed;
+  left: 10%;
+  top: 25%;
+  > ul {
+    position: relative;
+  }
 }
 
-#menu>ul>li:hover {
-        color: rgb(63, 63, 63);
-        cursor: pointer;
+#menu > ul > li:hover {
+  color: rgb(63, 63, 63);
+  cursor: pointer;
 }
 #closeMenu {
-    color: white;
-    position: absolute;
-    top: 5%;
-    right: 5%;
-     padding: 2px 8px;
-     border: 2px solid transparent;
-    &:hover {
-        color: red;
-        cursor: pointer;
-        border: 2px solid red;
-        border-radius: 50%;
-    }
-    z-index: 51;
+  color: white;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  padding: 2px 8px;
+  border: 2px solid transparent;
+  &:hover {
+    color: red;
+    cursor: pointer;
+    border: 2px solid red;
+    border-radius: 50%;
+  }
+  z-index: 51;
 }
-#creationList{
-        color: white;
-        width: 100%;
-        label {
-            border: 2px solid rgba(87, 87, 87, 0.829);
-            margin: 3px;
-            padding: 2px;
-            border-radius: 10px;
-            background-color: rgba(160, 160, 160, 0.856);
-            color: white;
-        }
-        [type="text"] {
-            padding: 5px;
-            font-size: 0.6em;
-            border-radius: 10px;
-        }
-        [type="radio"] {
-            border: 10px solid black;
-            color: red;
-            background-color: blue;
-            height: 20px;
-            width: 20px;
-        }
-    
+#creationList {
+  color: white;
+  width: 100%;
+  label {
+    border: 2px solid rgba(87, 87, 87, 0.829);
+    margin: 3px;
+    padding: 2px;
+    border-radius: 10px;
+    background-color: rgba(160, 160, 160, 0.856);
+    color: white;
+  }
+  [type="text"] {
+    padding: 5px;
+    font-size: 0.6em;
+    border-radius: 10px;
+  }
+  [type="radio"] {
+    border: 10px solid black;
+    color: red;
+    background-color: blue;
+    height: 20px;
+    width: 20px;
+  }
 }
 #submit-btn {
-    padding: 10px 30px;
-    margin-top: 20px;
-    border-radius: 10px;
-    font-size: 1.5em;
+  padding: 10px 30px;
+  margin-top: 20px;
+  border-radius: 10px;
+  font-size: 1.5em;
 }
-body, html {
-    height: 90%;
-    width: 100%;
-    font-family: sans-serif;
+body,
+html {
+  height: 90%;
+  width: 100%;
+  font-family: sans-serif;
 }
 ul {
-    z-index: 2;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    li {
-        text-align: center;
-        list-style-type: none;
-        padding: 10px;
-        min-width: 60%;
-        color: white;
-        border-bottom: 2px solid rgba(255, 255, 255, 0.596);
-    }
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  li {
+    text-align: center;
+    list-style-type: none;
+    padding: 10px;
+    min-width: 60%;
+    color: white;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.596);
+  }
 }
 .hidden {
-    display: none;
+  display: none;
 }
 .shown {
-display: block;
+  display: block;
 }
-.active-sprite{
-    border: 2px solid teal;
+.active-sprite {
+  border: 2px solid teal;
 }
-.box{
-    font-weight: 1000;
-    position: absolute;
-    display: inline-block;
-    z-index: 1;
-    transition: top 0.3s ease, left 0.3s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    &:hover {
-        cursor: pointer;
-    }
+.box {
+  font-weight: 1000;
+  position: absolute;
+  display: inline-block;
+  z-index: 1;
+  transition: top 0.3s ease, left 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    cursor: pointer;
+  }
 }
 .glow:hover {
   box-shadow: 0px 0px 10px 5px teal;

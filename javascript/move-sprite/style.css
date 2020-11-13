@@ -73,7 +73,8 @@
   font-size: 1.5em;
 }
 
-body, html {
+body,
+html {
   height: 90%;
   width: 100%;
   font-family: sans-serif;
